@@ -1,10 +1,7 @@
 # packages/apps.nix - Application packages
 # ============================================================================
 {
-  config,
   pkgs,
-  lib,
-  packages,
   ...
 }: let
   # Unstable channel packages

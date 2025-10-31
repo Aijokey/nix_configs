@@ -1,8 +1,6 @@
 # configuration.nix - Main system configuration
 # ============================================================================
 {
-  config,
-  pkgs,
   ...
 }: {
   imports = [

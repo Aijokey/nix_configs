@@ -1,12 +1,6 @@
 # packages/apps.nix - Application packages
 # ============================================================================
-{
-  config,
-  pkgs,
-  lib,
-  packages,
-  ...
-}: let
+{pkgs, ...}: let
   # Unstable channel packages
   pkgs-unstable = import <nixos-unstable> {
     config = {
@@ -41,5 +35,6 @@ in {
   # Add oterm to the systemPackages
   environment.systemPackages = with pkgs; [
     oterm
+    alpaca
   ];
 }
