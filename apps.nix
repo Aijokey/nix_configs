@@ -39,11 +39,6 @@ in {
       ];
     };
 
-    kdeconnect = {
-      enable = true;
-      package = pkgs.gnomeExtensions.gsconnect;
-    };
-
     # Dynamic linker libraries for compatibility
     nix-ld.libraries = with pkgs; [
       # Core system libraries

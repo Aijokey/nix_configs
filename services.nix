@@ -3,6 +3,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   # Desktop environment
@@ -13,17 +14,18 @@
       layout = "us";
       variant = "";
     };
-    displayManager.sddm.enable = true;
-    displayManager.sddm.wayland.enable = true;
-    desktopManager.plasma6.enable = true;
     excludePackages = [pkgs.xterm];
   };
-
-  # Remove unwanted GNOME packages
+  programs.ssh.askPassword = lib.mkForce "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
   environment.gnome.excludePackages = with pkgs; [
     gnome-software
     gnome-console
   ];
+  services = {
+    displayManager.sddm.enable = true;
+    displayManager.sddm.wayland.enable = true;
+    desktopManager.plasma6.enable = true;
+  };
 
   # System services
   services = {
