@@ -1,9 +1,6 @@
 # packages/apps.nix - Application packages
 # ============================================================================
-{
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   # Unstable channel packages
   pkgs-unstable = import <nixos-unstable> {
     config = {
@@ -295,7 +292,6 @@ in {
       kdePackages.filelight
       kdePackages.qtstyleplugin-kvantum
       kdePackages.qt6ct
-      kdePackages.kdeconnect-kde
       papirus-icon-theme
       (symlinkJoin {
         name = "kdevelop-complete";

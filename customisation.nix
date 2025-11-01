@@ -1,12 +1,6 @@
 # customisation.nix - UI customization (currently disabled)
 # ============================================================================
-{
-  config,
-  pkgs,
-  lib,
-  packages,
-  ...
-}: {
+{...}: {
   /*
   environment.variables = {
     # Default (optional fallback)
