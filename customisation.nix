@@ -15,6 +15,4 @@
     QT_QPA_PLATFORMTHEME="qt6ct";
   };
   */
-  qt.style = "qt6ct";
-  qt.platformTheme = "gnome";
 }
