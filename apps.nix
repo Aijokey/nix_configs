@@ -260,9 +260,7 @@ in {
       qt5.qtimageformats
       qt6.qtdeclarative
       qt6.qtimageformats
-      libsForQt5.qt5ct
       libsForQt5.qt5.qtquickcontrols2
-      libsForQt5.qtstyleplugin-kvantum
       kdePackages.kirigami
       kdePackages.kirigami-addons
       kdePackages.qqc2-desktop-style
@@ -285,8 +283,7 @@ in {
       # KDE Packages
       kdePackages.kde-cli-tools
       kdePackages.filelight
-      kdePackages.qtstyleplugin-kvantum
-      kdePackages.qt6ct
+      krita
       papirus-icon-theme
       (symlinkJoin {
         name = "kdevelop-complete";
