@@ -277,6 +277,7 @@ in {
       python3Packages.pygobject3
       gtksourceview5
       pipewire
+      alpaca
 
       # KDE Packages
       kdePackages.kde-cli-tools

@@ -24,6 +24,5 @@ in {
   # Add oterm to the systemPackages
   environment.systemPackages = with pkgs; [
     oterm
-    pkgs-unstable.alpaca
   ];
 }
