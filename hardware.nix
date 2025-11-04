@@ -5,7 +5,14 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  # Unstable channel packages
+  pkgs-unstable = import <nixos-unstable> {
+    config = {
+      allowUnfree = true;
+    };
+  };
+in {
   # Kernel parameters
   boot.kernelParams = [
     "module_blacklist=nouveau"

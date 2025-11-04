@@ -177,7 +177,6 @@ in {
       protonup-qt
       protontricks
       gamescope
-      gearlever
 
       # Wine
       wine
@@ -272,6 +271,7 @@ in {
       # UNSTABLE PACKAGES
       # ------------------------------------------------------------------------
       nixfmt-classic
+      nix-init
       nil
       gnome-builder
       python3Packages.pygobject3

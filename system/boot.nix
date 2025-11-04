@@ -4,12 +4,16 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  # Unstable channel packages
+  pkgs-unstable = import <nixos-unstable> {
+    config = {
+      allowUnfree = true;
+    };
+  };
+in {
   boot = {
-    kernelPackages =
-      (import <nixos-unstable> {
-        config = {allowUnfree = true;};
-      }).pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     loader = {
       systemd-boot = {
