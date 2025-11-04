@@ -42,6 +42,10 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
+  environment.variables = {
+    QT_QPA_PLATFORM = "wayland";
+  };
 }
 # ============================================================================
 

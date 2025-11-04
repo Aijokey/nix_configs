@@ -278,6 +278,7 @@ in {
       gtksourceview5
       pipewire
       alpaca
+      adw-gtk3
 
       # KDE Packages
       kdePackages.kde-cli-tools
