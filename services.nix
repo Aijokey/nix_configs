@@ -9,6 +9,7 @@
   # Desktop environment
   services.xserver = {
     enable = true;
+    displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
     xkb = {
       layout = "us";
@@ -21,11 +22,6 @@
     gnome-software
     gnome-console
   ];
-  services = {
-    displayManager.sddm.enable = true;
-    displayManager.sddm.wayland.enable = true;
-    desktopManager.plasma6.enable = true;
-  };
 
   # System services
   services = {
