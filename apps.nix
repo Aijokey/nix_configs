@@ -1,6 +1,11 @@
 # packages/apps.nix - Application packages
 # ============================================================================
-{pkgs, ...}: let
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
   # Unstable channel packages
   pkgs-unstable = import <nixos-unstable> {
     config = {
@@ -94,11 +99,10 @@ in {
       # ------------------------------------------------------------------------
       alacarte
       gnome-tweaks
-
+      (builtins.getFlake "github:snowfallorg/nixos-conf-editor").packages.${pkgs.system}.default
       # ------------------------------------------------------------------------
       # DEVELOPMENT TOOLS
       # ------------------------------------------------------------------------
-
       # IDEs & Editors
       neovim
       android-studio
@@ -275,11 +279,13 @@ in {
       nil
       gnome-builder
       python3Packages.pygobject3
+      python3Packages.pyasyncore
+      tftp-hpa
       gtksourceview5
       pipewire
       alpaca
       adw-gtk3
-
+      python3Packages.tkinter
       # KDE Packages
       kdePackages.kde-cli-tools
       kdePackages.filelight
