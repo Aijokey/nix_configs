@@ -27,7 +27,9 @@ in {
     gamemode.enable = true;
     gamescope.enable = true;
     nix-ld.enable = true;
-    gnome-terminal.enable = true;
+    #gnome-terminal.enable = true;
+    nautilus-open-any-terminal.terminal = "blackbox";
+    nautilus-open-any-terminal.enable = true;
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
@@ -273,9 +275,12 @@ in {
     ++ (with pkgs-unstable; [
       # ------------------------------------------------------------------------
       # UNSTABLE PACKAGES
+      pods
       # ------------------------------------------------------------------------
+      blackbox-terminal
       nixfmt-classic
       nix-init
+      gimp
       nil
       gnome-builder
       python3Packages.pygobject3
