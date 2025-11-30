@@ -1,8 +1,6 @@
 # configuration.nix - Main system configuration
 # ============================================================================
-{
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     # Hardware
     ./hardware-configuration.nix
@@ -35,6 +33,19 @@
   ];
 
   system.stateVersion = "24.11";
+  nixpkgs.overlays = [
+    (final: prev: {
+      inherit
+        (prev.lixPackageSets.stable)
+        nixpkgs-review
+        nix-eval-jobs
+        nix-fast-build
+        colmena
+        ;
+    })
+  ];
+
+  nix.package = pkgs.lixPackageSets.stable.lix;
 
   nixpkgs.config = {
     allowUnfree = true;

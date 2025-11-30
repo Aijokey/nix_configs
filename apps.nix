@@ -218,7 +218,6 @@ in {
       wineWowPackages.stable
       wineWowPackages.staging
       wineWowPackages.waylandFull
-      (wine.override {wineBuild = "wine64";})
       winetricks
 
       # ------------------------------------------------------------------------
