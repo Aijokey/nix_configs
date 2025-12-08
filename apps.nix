@@ -129,7 +129,7 @@ in {
       alacarte
       gnome-tweaks
       (builtins.getFlake "github:snowfallorg/nixos-conf-editor").packages.${pkgs.system}.default
-      (builtins.getFlake "github:nadiaholmquist/melonDS/feature/slot2-analog").packages.${pkgs.system}.default
+      #(builtins.getFlake "github:nadiaholmquist/melonDS/feature/slot2-analog").packages.${pkgs.system}.default
       # ------------------------------------------------------------------------
       # DEVELOPMENT TOOLS
       # ------------------------------------------------------------------------
@@ -247,7 +247,7 @@ in {
       # ------------------------------------------------------------------------
       # PRODUCTIVITY
       # ------------------------------------------------------------------------
-      libreoffice-qt6-fresh
+      libreoffice-fresh
       proton-pass
       telegram-desktop
 
@@ -285,11 +285,8 @@ in {
       # QT/KDE LIBRARIES
       # ------------------------------------------------------------------------
       qt5.qtbase
-      kdePackages.full
       qt5.qtx11extras
       qt5.qtimageformats
-      qt6.qtdeclarative
-      qt6.qtimageformats
       libsForQt5.qt5.qtquickcontrols2
       kdePackages.kirigami
       kdePackages.kirigami-addons
@@ -330,7 +327,6 @@ in {
           kdePackages.kate
         ];
       })
-      qt6.qtdoc
       # Applications
       blender
       superfile
@@ -338,5 +334,6 @@ in {
       zsh-powerlevel10k
       zsh-autocomplete
       starship
+      fractal
     ]);
 }

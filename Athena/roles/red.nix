@@ -84,7 +84,7 @@ with pkgs; [
   driftnet
   dsniff
   # dublin-traceroute # To be backported to 24.05
-  dump1090
+
   edb
   #enum4linux
   #enum4linux-ng
@@ -304,7 +304,7 @@ with pkgs; [
   sniffglue
   snmpcheck
   snort
-  snowman
+
   # https://github.com/NixOS/nixpkgs/issues/326940
   # snscrape
   snyk

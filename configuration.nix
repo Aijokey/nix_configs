@@ -1,6 +1,19 @@
 # configuration.nix - Main system configuration
 # ============================================================================
 {pkgs, ...}: {
+  nixpkgs.overlays = [
+    (final: prev: {
+      inherit
+        (prev.lixPackageSets.stable)
+        nixpkgs-review
+        nix-eval-jobs
+        nix-fast-build
+        colmena
+        ;
+    })
+  ];
+
+  nix.package = pkgs.lixPackageSets.stable.lix;
   imports = [
     # Hardware
     ./hardware-configuration.nix
@@ -25,27 +38,14 @@
     ./virtualization/docker.nix
 
     # Security & Pentesting
-    ./athena.nix
+    #./athena.nix
 
-    # Customization (currently disabled)
+    # Customization
     ./customisation.nix
     ./llm.nix
   ];
 
   system.stateVersion = "24.11";
-  nixpkgs.overlays = [
-    (final: prev: {
-      inherit
-        (prev.lixPackageSets.stable)
-        nixpkgs-review
-        nix-eval-jobs
-        nix-fast-build
-        colmena
-        ;
-    })
-  ];
-
-  nix.package = pkgs.lixPackageSets.stable.lix;
 
   nixpkgs.config = {
     allowUnfree = true;

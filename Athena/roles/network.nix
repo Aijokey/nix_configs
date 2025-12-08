@@ -30,7 +30,7 @@ with pkgs; [
   driftnet
   dsniff
   dublin-traceroute
-  dump1090
+
   etherape
   ettercap
   evillimiter

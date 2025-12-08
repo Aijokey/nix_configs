@@ -1,7 +1,7 @@
 {pkgs, ...}:
 with pkgs; [
   amoco
-  android-udev-rules
+
   apkid
   apkleaks
   apktool
