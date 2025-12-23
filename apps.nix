@@ -19,12 +19,13 @@ in {
   programs = {
     firefox.enable = true;
     java.enable = true;
-
+    fzf.fuzzyCompletion = true;
     direnv = {
       enable = true;
       nix-direnv.enable = true;
       enableBashIntegration = true;
     };
+    gnome-terminal.enable = true;
 
     gamemode.enable = true;
     gamescope.enable = true;
@@ -49,19 +50,12 @@ in {
       autosuggestions.enable = true;
       syntaxHighlighting.enable = true;
       histSize = 10000;
-      shellAliases = {
-        #...
-      };
       setOptions = [
         "AUTO_CD"
       ];
       promptInit = "
       source ${pkgs-unstable.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
       source ${pkgs-unstable.zsh-autocomplete}/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh";
-      ohMyZsh = {
-        enable = true;
-        plugins = ["git" "dirhistory" "history"];
-      };
     };
 
     obs-studio = {
@@ -128,14 +122,13 @@ in {
       # ------------------------------------------------------------------------
       alacarte
       gnome-tweaks
-      (builtins.getFlake "github:snowfallorg/nixos-conf-editor").packages.${pkgs.system}.default
       #(builtins.getFlake "github:nadiaholmquist/melonDS/feature/slot2-analog").packages.${pkgs.system}.default
       # ------------------------------------------------------------------------
       # DEVELOPMENT TOOLS
       # ------------------------------------------------------------------------
       # IDEs & Editors
       neovim
-      android-studio
+      #android-studio
       nixd
       alejandra
       #codelite
@@ -301,7 +294,6 @@ in {
       # UNSTABLE PACKAGES
       pods
       # ------------------------------------------------------------------------
-      blackbox-terminal
       nixfmt-classic
       nix-init
       gimp
@@ -330,10 +322,13 @@ in {
       # Applications
       blender
       superfile
-      (prismlauncher.override {jdks = [pkgs.jre8];})
+      #(prismlauncher.override {jdks = [pkgs.jre8];})
+      prismlauncher
       zsh-powerlevel10k
       zsh-autocomplete
-      starship
       fractal
+      distrobox
+      fishPlugins.tide
+      bazaar
     ]);
 }

@@ -6,11 +6,9 @@
   lib,
   ...
 }: {
-  # Desktop environment
   services.xserver = {
     enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+
     xkb = {
       layout = "us";
       variant = "";
@@ -25,6 +23,8 @@
 
   # System services
   services = {
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
     flatpak.enable = true;
     printing.enable = true;
     openssh.enable = true;
