@@ -13,7 +13,7 @@
   };
 in {
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs-unstable.linuxPackages_latest;
 
     loader = {
       systemd-boot = {
@@ -23,6 +23,7 @@ in {
       efi.canTouchEfiVariables = true;
     };
   };
+  boot.kernel.sysctl = {"fs.file-max" = 50000;};
 }
 # ============================================================================
 

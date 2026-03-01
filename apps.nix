@@ -33,7 +33,6 @@ in {
     nix-ld.enable = true;
 
     #gnome-terminal.enable = true;
-    nautilus-open-any-terminal.terminal = "blackbox";
     nautilus-open-any-terminal.enable = true;
 
     steam = {
@@ -52,10 +51,18 @@ in {
       histSize = 10000;
       setOptions = [
         "AUTO_CD"
+        "EXTENDED_HISTORY"
       ];
       promptInit = "
       source ${pkgs-unstable.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-      source ${pkgs-unstable.zsh-autocomplete}/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh";
+      source ${pkgs-unstable.zsh-autocomplete}/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+      source ${pkgs-unstable.antidote}/share/antidote/antidote.zsh
+      antidote load
+      ";
+      ohMyZsh = {
+        enable = true;
+        plugins = ["git" "dirhistory" "history"];
+      };
     };
 
     obs-studio = {
@@ -284,6 +291,8 @@ in {
       kdePackages.kirigami
       kdePackages.kirigami-addons
       kdePackages.qqc2-desktop-style
+      kdePackages.kdevelop
+      kdePackages.kate
       kdePackages.ark
       kdePackages.systemsettings
       kdePackages.kiconthemes
@@ -294,11 +303,10 @@ in {
       # UNSTABLE PACKAGES
       pods
       # ------------------------------------------------------------------------
-      nixfmt-classic
+      nixfmt
       nix-init
       gimp
       nil
-      gnome-builder
       python3Packages.pygobject3
       python3Packages.pyasyncore
       tftp-hpa
@@ -312,13 +320,6 @@ in {
       kdePackages.filelight
       krita
       papirus-icon-theme
-      (symlinkJoin {
-        name = "kdevelop-complete";
-        paths = [
-          kdePackages.kdevelop
-          kdePackages.kate
-        ];
-      })
       # Applications
       blender
       superfile
@@ -328,7 +329,14 @@ in {
       zsh-autocomplete
       fractal
       distrobox
-      fishPlugins.tide
+      #fishPlugins.tide
       bazaar
+      gnome-builder
+      podman-compose
+      distrobox-tui
+      boxbuddy
+      antidote
+      devbox
+      libical
     ]);
 }

@@ -5,7 +5,14 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  # Unstable channel packages
+  pkgs-unstable = import <nixos-unstable> {
+    config = {
+      allowUnfree = true;
+    };
+  };
+in {
   services.xserver = {
     enable = true;
 
@@ -31,6 +38,7 @@
     envfs.enable = true;
     logmein-hamachi.enable = true;
   };
+  services.printing.drivers = [pkgs-unstable.cnijfilter2];
 
   # Audio
   services.pulseaudio.enable = false;
@@ -42,7 +50,8 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-
+  services.lact.enable = true;
+  services.lact.package = pkgs-unstable.lact;
   environment.variables = {
     QT_QPA_PLATFORM = "wayland";
   };

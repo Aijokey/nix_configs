@@ -23,7 +23,7 @@
     ./system/boot.nix
     ./system/locale.nix
     ./system/network.nix
-
+    #./sql.nix
     # Services
     ./services.nix
 
